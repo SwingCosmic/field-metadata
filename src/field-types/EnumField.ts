@@ -2,18 +2,14 @@ import { FieldMetaBase } from "../FieldMeta";
 
 export type EnumDataType = "string" | "number" | "boolean";
 
-export type EnumValueType<T extends EnumDataType> = 
-  T extends "number" ? number :
-  T extends "boolean" ? boolean :
-  string;
 
-export interface EnumOption<T extends EnumDataType> {
+export interface EnumOption<T> {
   label: string;
-  value: EnumValueType<T>;
+  value: T;
   order?: number;
 }
-export interface EnumField<T extends EnumDataType> extends FieldMetaBase<"enum"> {
-  dataType: T;
+export interface EnumField<T extends string | number | boolean> extends FieldMetaBase<"enum"> {
+  dataType: EnumDataType;
 
   options: EnumOption<T>[];
 }

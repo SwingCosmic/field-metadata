@@ -4,7 +4,7 @@ import { StringField } from "./field-types/StringField";
 import { ObjectField } from "./field-types/ObjectField";
 import { DisplayMode, DisplayModeInfo } from "./DisplayMode";
 import { DateField } from "./field-types/DateField";
-import { EnumDataType, EnumField, EnumValueType } from "./field-types/EnumField";
+import { EnumDataType, EnumField } from "./field-types/EnumField";
 import { BooleanField } from "./field-types/BooleanField";
 import { ArrayField } from "./field-types/ArrayField";
 import { NamedTypeField } from "./field-types/NamedTypeField";
@@ -28,7 +28,7 @@ export interface FieldTypeMap {
   
   // basic types
   "color": ColorField;
-  "enum": EnumField<EnumDataType>;
+  "enum": EnumField<string | number | boolean>;
 
   // complex types
   "object": ObjectField;
@@ -52,7 +52,7 @@ export type ExtractType<T extends TypeMeta> =
   T["type"] extends "boolean" ? boolean :
   T["type"] extends "date" ? string :
   T["type"] extends "color" ? string :
-  T extends EnumField<infer R> ? EnumValueType<R> :
+  T extends EnumField<infer R> ? R :
   T extends ArrayField ? ExtractType<T["elementType"]>[] :
   T extends ObjectField<infer R> ? 
     R extends any ? ({
