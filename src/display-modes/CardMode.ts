@@ -1,6 +1,6 @@
 import { DisplayModeInfoBase } from "../DisplayMode";
 
-export interface CardModeInfo extends DisplayModeInfoBase<"card"> {
+export interface CardModeInfo extends DisplayModeInfoBase {
   
   
 }

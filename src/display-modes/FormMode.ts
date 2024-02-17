@@ -1,6 +1,6 @@
 import { DisplayModeInfoBase } from "../DisplayMode";
 
-export interface FormModeInfo extends DisplayModeInfoBase<"form"> {
+export interface FormModeInfo extends DisplayModeInfoBase {
   readonly?: boolean;
   disabled?: boolean;
 

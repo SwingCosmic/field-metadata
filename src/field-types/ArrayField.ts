@@ -1,7 +1,6 @@
-import { FieldMetaBase } from "../FieldMeta";
-import { FieldMeta } from "../FieldMeta";
+import { FieldMetaBase, TypeMeta } from "../FieldMeta";
 
 
 export interface ArrayField extends FieldMetaBase<"array"> {
-  elementType: FieldMeta;
+  elementType: TypeMeta;
 }

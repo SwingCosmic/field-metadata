@@ -2,9 +2,7 @@ import { CardModeInfo } from "./display-modes/CardMode";
 import { FormModeInfo } from "./display-modes/FormMode";
 import { TableModeInfo } from "./display-modes/TableMode";
 
-export interface DisplayModeInfoBase<T extends string> {
-  type: T;
-
+export interface DisplayModeInfoBase {
   hidden?: boolean;
   order?: number;
 }

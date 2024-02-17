@@ -14,8 +14,6 @@ export type DisplayModeMeta = {
 }
 
 export interface FieldMetaBase<T extends string> extends DisplayModeMeta {
-  field: string;
-  name: string;
   type: T;
   description?: string;
   required?: boolean;
@@ -41,10 +39,14 @@ export interface FieldTypeMap {
 };
 
 export type FieldType = keyof FieldTypeMap;
-export type FieldMeta = FieldTypeMap[FieldType];
+export type TypeMeta = FieldTypeMap[FieldType];
+export type FieldMeta = TypeMeta & {
+  field: string;
+  name: string;
+};
 
 
-export type ExtractType<T extends FieldMeta> = 
+export type ExtractType<T extends TypeMeta> = 
   T["type"] extends "string" ? string :
   T["type"] extends "number" ? number :
   T["type"] extends "boolean" ? boolean :
