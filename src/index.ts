@@ -1,4 +1,5 @@
 export * from "./field-types/ColorField";
+export * from "./field-types/CodeField";
 export * from "./field-types/NumberField";
 export * from "./field-types/StringField";
 export * from "./field-types/ObjectField";

@@ -8,6 +8,7 @@ import { EnumDataType, EnumField } from "./field-types/EnumField";
 import { BooleanField } from "./field-types/BooleanField";
 import { ArrayField } from "./field-types/ArrayField";
 import { NamedTypeField } from "./field-types/NamedTypeField";
+import { CodeField } from "./field-types/CodeField";
 
 export type DisplayModeMeta = {
   [M in DisplayMode]?: DisplayModeInfo<M>;
@@ -28,7 +29,8 @@ export interface FieldTypeMap {
   
   // basic types
   "color": ColorField;
-  "enum": EnumField<string | number | boolean>;
+  "enum": EnumField<unknown>;
+  "code": CodeField;
 
   // complex types
   "object": ObjectField;
@@ -52,6 +54,7 @@ export type ExtractType<T extends TypeMeta> =
   T["type"] extends "boolean" ? boolean :
   T["type"] extends "date" ? string :
   T["type"] extends "color" ? string :
+  T["type"] extends "code" ? string :
   T extends EnumField<infer R> ? R :
   T extends ArrayField ? ExtractType<T["elementType"]>[] :
   T extends ObjectField<infer R> ? 
