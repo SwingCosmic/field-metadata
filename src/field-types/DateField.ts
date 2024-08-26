@@ -2,7 +2,7 @@ import { FieldMetaBase } from "../FieldMeta";
 
 
 export type DateEditorType = "year" | "quarter" | "month" | "week" | "date" | "datetime" | "time";
-export interface DateField extends FieldMetaBase<"date"> {
+export interface DateField extends FieldMetaBase<"date", string> {
   editorType: DateEditorType;
 
   valueFormat?: string;

@@ -1,6 +1,6 @@
 import { FieldMetaBase } from "../FieldMeta";
 
-export interface StringField extends FieldMetaBase<"string"> {
+export interface StringField extends FieldMetaBase<"string", string> {
   minLength?: number;
   maxLength?: number;
   /** textarea */

@@ -1,5 +1,8 @@
 import { FieldMetaBase } from "../FieldMeta";
 
-export interface BooleanField extends FieldMetaBase<"boolean"> {
+export type BooleanEditorType = "switch" | "checkbox";
 
+export interface BooleanField extends FieldMetaBase<"boolean", boolean> {
+  editorType?: BooleanEditorType;
+  distinguishNull?: boolean;
 }

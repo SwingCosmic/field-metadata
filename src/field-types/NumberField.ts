@@ -1,6 +1,6 @@
 import { FieldMetaBase } from "../FieldMeta";
 
-export interface NumberField extends FieldMetaBase<"number"> {
+export interface NumberField extends FieldMetaBase<"number", number> {
   precision?: number;
   percentage?: boolean;
   unit?: string;

@@ -8,7 +8,7 @@ export interface EnumOption<T> {
   value: T;
   order?: number;
 }
-export interface EnumField<T> extends FieldMetaBase<"enum"> {
+export interface EnumField<T> extends FieldMetaBase<"enum", T> {
   dataType: EnumDataType;
 
   options: EnumOption<T>[];
