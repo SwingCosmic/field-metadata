@@ -51,7 +51,7 @@ export interface FieldTypeMap {
 
 export type FieldType = keyof FieldTypeMap;
 export type TypeMeta = FieldTypeMap[FieldType];
-export type FieldMeta = TypeMeta & {
+export type FieldMeta<T extends TypeMeta = TypeMeta> = T & {
   field: string;
   name: string;
 };
